@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cuds451ltw1fc"]
+
+[node name="Cactus" type="Area2D"]

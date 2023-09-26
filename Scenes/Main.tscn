@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpwiq2b7p10m2"]
+
+[ext_resource type="PackedScene" uid="uid://44e3lbje0o3q" path="res://Scenes/Player.tscn" id="1_52ifa"]
+[ext_resource type="PackedScene" uid="uid://c38h1nny8nbsr" path="res://Scenes/Floor.tscn" id="2_p2lpf"]
+
+[node name="Main" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1208.0
+offset_bottom = 685.0
+
+[node name="Player" parent="." instance=ExtResource("1_52ifa")]
+position = Vector2(49, 50)
+
+[node name="Floor" parent="." instance=ExtResource("2_p2lpf")]
+position = Vector2(158, 78)
