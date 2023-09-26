@@ -1,16 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpwiq2b7p10m2"]
+[gd_scene load_steps=5 format=3 uid="uid://bfmfms74w7g2v"]
 
-[ext_resource type="PackedScene" uid="uid://44e3lbje0o3q" path="res://Scenes/Player.tscn" id="1_52ifa"]
-[ext_resource type="PackedScene" uid="uid://c38h1nny8nbsr" path="res://Scenes/Floor.tscn" id="2_p2lpf"]
+[ext_resource type="PackedScene" uid="uid://ci4dbk5c32b3c" path="res://Scenes/Floor.tscn" id="1_8j2o4"]
+[ext_resource type="Script" path="res://Scenes/Main.gd" id="1_qetpq"]
+[ext_resource type="PackedScene" uid="uid://bo88i0q3jjasi" path="res://Scenes/Player.tscn" id="2_u1x3n"]
+[ext_resource type="PackedScene" uid="uid://c2fy2mistsrms" path="res://Scenes/Cactus.tscn" id="3_wkmht"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_qetpq")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1208.0
-offset_bottom = 685.0
+[node name="Floor" parent="." instance=ExtResource("1_8j2o4")]
+position = Vector2(159, 82)
 
-[node name="Player" parent="." instance=ExtResource("1_52ifa")]
-position = Vector2(49, 50)
+[node name="Player" parent="." instance=ExtResource("2_u1x3n")]
+position = Vector2(37, 66)
 
-[node name="Floor" parent="." instance=ExtResource("2_p2lpf")]
-position = Vector2(158, 78)
+[node name="Cactus" parent="." instance=ExtResource("3_wkmht")]
+position = Vector2(282, 66)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(294, 68)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://cuds451ltw1fc"]
+[gd_scene load_steps=4 format=3 uid="uid://c2fy2mistsrms"]
+
+[ext_resource type="Texture2D" uid="uid://bd07bu6uo0k2h" path="res://Assets/cactus11.png" id="1_b0ilw"]
+[ext_resource type="Script" path="res://Scenes/Cactus.gd" id="1_yk5c7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lby0i"]
+radius = 4.0
+height = 28.0
 
 [node name="Cactus" type="Area2D"]
+script = ExtResource("1_yk5c7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_b0ilw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lby0i")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-0.5, 0.5)
+scale = Vector2(0.15, 1.05)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
